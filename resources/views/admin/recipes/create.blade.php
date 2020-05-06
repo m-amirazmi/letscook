@@ -14,9 +14,10 @@
               <div class="form-group">
                 <label for="categoryInput">Category</label>
                 <select class="form-control" id="categoryInput" name="category">
+                  <option value="none" disabled selected>Choose Category</option>
                   <option value="featured">Featured</option>
                   <option value="easy_fix">Easy Fix</option>
-                  <option value="recent_upload" selected>Recent Upload</option>
+                  <option value="recent_upload">Recent Upload</option>
                 </select>
               </div>
             </div>

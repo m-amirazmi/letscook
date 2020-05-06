@@ -57,8 +57,8 @@ class RecipesController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.recipes.edit');
-
+        $recipe = Recipe::find($id);
+        return view('admin.recipes.edit')->with('recipe', $recipe);
     }
 
     /**
@@ -70,7 +70,21 @@ class RecipesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category' => 'required',
+            'name' => 'required',
+            'image' => 'required',
+            'ingredients' => 'required',
+            'instructions' => 'required',
+        ]);
+        $recipe = Recipe::find($id);
+        $recipe->category = $request->input('category');
+        $recipe->name = $request->input('name');
+        $recipe->image = $request->input('image');
+        $recipe->ingredients = $request->input('ingredients');
+        $recipe->instructions = $request->input('instructions');
+        $recipe->save();
+        return redirect('/admin/recipes/'.$id);
     }
 
     /**
@@ -81,6 +95,8 @@ class RecipesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recipe = Recipe::find($id);
+        $recipe->delete();
+        return redirect('/admin/recipes');
     }
 }

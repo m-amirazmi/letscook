@@ -31,7 +31,7 @@
                 <td>
                   <a href="#" onclick="event.preventDefault();
                   document.getElementById('delete-item-{{$recipe->id}}').submit();"><i class="far fa-trash-alt"></i></a>
-                    <form id="delete-item-{{$recipe->id}}" action="/admin/recipes/{{$recipe->id}}/delete" method="POST" style="display: none;">
+                    <form id="delete-item-{{$recipe->id}}" action="/admin/recipes/{{$recipe->id}}" method="POST" style="display: none;">
                         @method('DELETE')
                         @csrf
                     </form></td>
