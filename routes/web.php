@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Front Pages
+Route::get('/', 'FrontPagesController@landing');
+Route::get('/recipes', 'FrontPagesController@index');
+Route::get('/recipes/{id}', 'FrontPagesController@show');
+
+// Admin Pages
+Route::get('/admin', function(){
+    return view('admin.index');
 });
-Route::get('/recipes', function(){
-    return view('recipes/index');
-});
-Route::get('/recipes/:rid', function(){
-    return view('recipes/show');
-});
+
+// Recipes Route
+Route::resource('/admin/recipes', 'RecipesController');
