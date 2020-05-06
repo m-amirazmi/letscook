@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Recipe;
 
 class FrontPagesController extends Controller
 {
@@ -10,9 +11,11 @@ class FrontPagesController extends Controller
         return view('welcome');
     }
     public function index(){
-        return view('recipes.index');
+        $recipes = Recipe::all();
+        return view('recipes.index')->with('recipes', $recipes);
     }
-    public function show(){
-        return view('recipes.show');
+    public function show($id){
+        $recipe = Recipe::find($id);
+        return view('recipes.show')->with('recipe', $recipe);
     }
 }

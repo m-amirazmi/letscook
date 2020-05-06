@@ -4,46 +4,22 @@
   <div class="container">
     <div class="row show-title-box">
       <div class="col-12">
-        <h3 class="show-title">Curry Laksa</h3>
+        <h3 class="show-title">{{$recipe->name}}</h3>
         <hr>
       </div>
     </div>
     <div class="row show-recipe-details">
       <div class="col-5 show-recipe-img-box">
-        <img src="https://rasamalaysia.com/wp-content/uploads/2011/07/curry-laksa4.jpg" alt="">
+        <img src={{$recipe->image}} alt="">
       </div>
       <div class="col-3 show-recipe-ingredients">
         <h4>Ingredients</h4>
-        <p>for 3 people | 30mins</p>
-        <h6>Soup:</h6>
-        <ul>
-          <li>3 tablespoons cooking oil</li>
-          <li>1/2 pack Malaysian instant curry paste (120g)</li>
-          <li>2 cups chicken broth (1 can)</li>
-          <li>2 cups water</li>
-          <li>2 stalks lemongrass, white part only, pounded</li>
-          <li>10 tofu puffs, cut into pieces</li>
-          <li>1/2 cup evaporated milk</li>
-          <li>1/2 cup coconut milk</li>
-          <li>Salt to taste</li>
-        </ul>
-        <h6>Other Ingredients:</h6>
-        <ul>
-          <li>Yellow noodles</li>
-          <li>Bean sprouts</li>
-          <li>10 shrimp, peeled, deveined and cooked</li>
-          <li>3 hard-boiled eggs, cut into halves</li>
-          <li>Fish cakes, cut into pieces</li>
-        </ul>
+        {!!$recipe->ingredients!!}
       </div>
       <div class="col-4 show-recipe-instructions">
         <div class="background-show-recipe-instructions"></div>
         <h4>Instructions</h4>
-        <ol>
-          <li>In a stockpot, add the oil and sauté the instant curry paste until aromatic. Add the chicken broth, water, lemongrass, tofu puffs and bring the soup to a boil. Lower the heat to simmer. Add the coconut milk and evaporated milk. Add salt to taste. Keep the stock on simmer.</li>
-          <li>Rinse the yellow noodles and bean sprouts separately, drained and set aside.</li>
-          <li>To assemble a bowl of laksa for serving, bring to boil some yellow noodles and a handful of bean sprouts. Drain the noodles and bean sprouts and transfer to a serving bowl. Top the noodles with 2-3 shrimp, a few pieces of fish cake, and some eggs. Using a ladle, pour the soup and a few pieces of tofu puffs on top of the noodles. Serve immediately.</li>
-        </ol>
+        {!!$recipe->instructions!!}
       </div>
     </div>
   </div>
