@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href={{asset('css/app.css')}}>
+  <script src="https://kit.fontawesome.com/ce9a652be3.js" crossorigin="anonymous"></script>
+  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
   <title>Let's Cook | Admin</title>
 </head>
 <body>
@@ -41,5 +43,11 @@
   <main>
     @yield('content')
   </main>
+  <script>
+    CKEDITOR.replace( 'instructionsInput' );
+    CKEDITOR.add
+    CKEDITOR.replace( 'ingredientsInput' );
+    CKEDITOR.add
+  </script>
 </body>
 </html>

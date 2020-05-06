@@ -7,36 +7,34 @@ use App\Recipe;
 
 class RecipesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
-    {
-        return view('admin.recipes.index');
+    {   
+        $recipes = Recipe::orderBy('category', 'asc')->paginate(10);
+        return view('admin.recipes.index')->with('recipes', $recipes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.recipes.create');
-
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'category' => 'required',
+            'name' => 'required',
+            'image' => 'required',
+            'ingredients' => 'required',
+            'instructions' => 'required',
+        ]);
+        $recipe = new Recipe();
+        $recipe->category = $request->input('category');
+        $recipe->name = $request->input('name');
+        $recipe->image = $request->input('image');
+        $recipe->ingredients = $request->input('ingredients');
+        $recipe->instructions = $request->input('instructions');
+        $recipe->save();
+        return redirect('/admin/recipes');
     }
 
     /**
@@ -47,7 +45,8 @@ class RecipesController extends Controller
      */
     public function show($id)
     {
-        //
+        $recipe = Recipe::find($id);
+        return view('admin.recipes.show')->with('recipe', $recipe);
     }
 
     /**
