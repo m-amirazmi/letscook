@@ -7,6 +7,7 @@ use App\Recipe;
 
 class RecipesController extends Controller
 {
+   
     public function index()
     {   
         $recipes = Recipe::orderBy('category', 'asc')->paginate(10);

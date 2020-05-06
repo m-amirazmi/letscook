@@ -19,9 +19,10 @@ Route::get('/recipes', 'FrontPagesController@index');
 Route::get('/recipes/{id}', 'FrontPagesController@show');
 
 // Admin Pages
-Route::get('/admin', function(){
-    return view('admin.index');
-});
+Route::get('/admin', 'AdminController@index');
 
 // Recipes Route
 Route::resource('/admin/recipes', 'RecipesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
