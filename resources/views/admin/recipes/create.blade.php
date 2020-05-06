@@ -48,4 +48,5 @@
           <button class="btn btn-primary" type="submit">Add Recipe</button>
         </form>
       </div>
+    </div>
 @endsection
